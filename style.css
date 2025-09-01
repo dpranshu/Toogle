@@ -8,21 +8,21 @@ body {
   font-optical-sizing: auto;
   font-weight: 200px;
   font-style: normal;
-}
+  background-color: #6737d0eb;
+background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z' fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
 
-#header {
-  height: 65px;
-  width: 100%;
 }
 
 .navbar {
-  height: 100%;
+  height: 70px;
   width: auto;
   padding: 1rem 3.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #6737d0;
+  /* background-color: #6737d0; */
+  background-color: #6737d0c4;
+
 }
 
 .profile-pic {
@@ -39,16 +39,38 @@ body {
   gap: 1.3rem;
 }
 
-.links>a {
+.links > a {
   font-size: 20px;
   margin-right: 2rem;
   text-decoration: none;
   color: #f5f2f2;
+  position: relative;
+  padding-bottom: 37px;
+  text-transform: uppercase;
+
 }
 
 .links>a:hover {
   color: #eaeaeaba;
 }
+
+.links > a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: #00ff99; /* green underline */
+  transition: width 0.3s ease;
+}
+
+
+/* Active link always underlined */
+.links > a.active::after {
+  width: 100%;
+}
+
 
 .Activity-monitoring>img {
   background-color: #6737d0;
@@ -68,8 +90,13 @@ body {
 
 
 @media (max-width: 820px) {
-  .links>a {
+  .navbar {
+    height: 64px;
+  }
+  .links > a {
     margin-right: 1.4rem;
+  text-transform: uppercase;
+
   }
 
   .profile-pic {
@@ -99,6 +126,7 @@ body {
 
   .links {
     display: none;
+    
     /* hide links on small screens */
   }
 
@@ -116,7 +144,7 @@ body {
   top: 100%; /* below navbar */
   left: 0;
   width: 100%; height: 100%;
-  background: rgba(207, 207, 207, 0.200);
+  background: #6737d070;
   z-index: 500; /* lower than menu */
 }
 
@@ -127,7 +155,7 @@ body {
   position: fixed;
   left: 0;
    top: 100%;
-  background: #6737d0;
+  background: #6737d0c4;
   width: 100vw;
   max-width: 100%;
       height: fit-content;
@@ -143,4 +171,93 @@ body {
     padding: 12px;
     text-decoration: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+
   }
+
+
+
+/* hero */
+
+.hero-container {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;  /* more flexible */
+  width: 100%;       /* better than auto */
+  text-align: center; /* optional, for centered text */
+      gap: 0.7rem;
+
+}  
+
+.hero-container > h1 {
+  color: #f5f2f2;
+  font-size: 45px;
+}
+input[type="text"] {
+  width: 45%;
+  height: 45px;
+  font-size: 15px;
+  line-height: 1;
+  padding: 0 15px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 25px;
+border: none;
+border-left: 2px solid rgba(123, 122, 150, 0.311);
+  background-color: #6737d0c4;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+/* Changes only placeholder text color */
+input::placeholder {
+  color: #b3b3b3;
+  opacity: 1;
+}
+
+
+.search-icon {
+  /* background-color: #e1dee7c1; */
+  background-color: #6737d0c4;
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 0px;
+  border: none;
+}
+
+.search-btn {
+  background-color: #ffffff;
+  height: 45px;
+  width: 100px;
+  border: none;
+  border-radius: 25px;
+  margin-left: 0.8rem;
+  cursor:pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.search-btn:hover {
+  background: #f1f1f1;
+}
+
+.search-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}

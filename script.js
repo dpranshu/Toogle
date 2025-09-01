@@ -38,3 +38,17 @@ updateMenuPosition();
 
 // Run again if window resizes
 window.addEventListener('resize', updateMenuPosition);
+
+
+// Get all nav links
+const navLinks = document.querySelectorAll(".links a");
+
+// Add click listener
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    // Remove active from all
+    navLinks.forEach(l => l.classList.remove("active"));
+    // Add active to clicked
+    link.classList.add("active");
+  });
+});
