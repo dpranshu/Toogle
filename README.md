@@ -31,3 +31,11 @@ toogle/
 - **Vercel** – Deployment and hosting
 
 ---
+
+## 🎯 Purpose
+This project was created to practice building a **polished UI from scratch**, focusing on:  
+- Clean design principles  
+- Responsive layouts  
+- Micro-interactions that improve usability  
+
+It highlights my ability to combine **UI/UX design** with **front-end development** in a simple yet elegant project.  
